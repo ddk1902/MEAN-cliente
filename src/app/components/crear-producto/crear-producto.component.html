@@ -4,29 +4,32 @@
                 <div class="card">
                     <div class="card-body text-center" >
                         
-                        <span class="titulo">Agregar productos</span>
+                        <span class="titulo">{{titulo|uppercase}}</span>
                         <form class="mt-5" [formGroup]="productoForm" (ngSubmit)="agregarProducto()">
                             <div class="mb-3">
-                                <input type="text" class="form-control form-control-lg" formControlName="producto"  placeholder="Producto">
+                                <input type="text" class="form-control form-control-lg" formControlName="nombre"  placeholder="Nombre">
                             </div>
-                            <div class="text-danger" *ngIf="productoForm.get('producto')?.hasError('required')">
+                            <div class="text-danger" *ngIf="productoForm.get('nombre')?.hasError('required')">
                                 <span>*Campo obligatorio</span>
                             </div>
                            
                         
                             <div mb-3>
-                                
-                                <select class="form-select form-select-lg mt-4" formControlName="categoria" placeholder="Categoría">
+                                <input type="text" class="form-control form-control-lg" formControlName="categoria"  placeholder="Categoría">
+                            </div>
+                        
+                           
+                             <!--    <select class="form-select form-select-lg mt-4" formControlName="categoria" placeholder="Categoría">
                                         <option selected>Categoría</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
-                                </select>
+                                </select> -->
                                 <div class="text-danger" *ngIf="productoForm.get('categoria')?.hasError('required')">
                                     <span>*Campo obligatorio</span>
                                 </div>
                                
-                            </div>
+                           
 
                             <div mb-3>
                                 <input type="text" class="form-control form-control-lg mt-4"formControlName="ubicacion" placeholder="Ubicación">
